@@ -2,7 +2,7 @@
  * Created by hao.cheng on 2017/4/16.
  */
 import React from 'react';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchData, receiveData } from '@/action';
@@ -35,6 +35,10 @@ class Login extends React.Component {
     };
     gitHub = () => {
         window.location.href = 'https://github.com/login/oauth/authorize?client_id=792cdcd244e98dcd2dee&redirect_uri=http://localhost:3006/&scope=user&state=reactAdmin';
+    };
+
+    register=()=>{
+        message.info('暂时不需要注册!')
     };
     render() {
         const { getFieldDecorator } = this.props.form;
@@ -71,7 +75,7 @@ class Login extends React.Component {
                                 登录
                             </Button>
                             <p style={{display: 'flex', justifyContent: 'space-between'}}>
-                                <a href="">或 现在就去注册!</a>
+                                <a onClick={this.register}>或 现在就去注册!</a>
                                 <a onClick={this.gitHub} ><Icon type="github" />(第三方登录)</a>
                             </p>
                         </FormItem>
